@@ -5,36 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="result">calculator</div>
-
-    <div id="buttons">
-
-        <div class="ops">
-            <button id="add" class="op">+</button>
-            <button id="subtract" class="op">-</button>
-            <button id="multiply" class="op">X  </button>
-            <button id="divide" class="op">÷</button>
-            <button id="equal" class="op">=</button>
-        </div>
-
-        <div class="digits">
-            <button id="9" class="dg">9</button>
-            <button id="8" class="dg">8</button>
-            <button id="7" class="dg">7</button>
-            <button id="6" class="dg">6</button>
-            <button id="5" class="dg">5</button>
-            <button id="4" class="dg">4</button>
-            <button id="3" class="dg">3</button>
-            <button id="2" class="dg">2</button>
-            <button id="1" class="dg">1</button>
-            <button id="0" class="dg">0</button>
-        </div>
+    <div class="container">
+        <img src="images/BMO.jpeg" alt="bmo" class="bmoImg">
+        <div id="result">calculator</div>
         
-        <button id="clear">C</button>
-        <button id="delete">⌫</button>
-        <img src="images/BMO.jpeg" alt="bmo">
+        <div class="btns">
+            
+            <div class="ops">
+                <button id="add" class="op">+</button>
+                <button id="subtract" class="op">-</button>
+                <button id="multiply" class="op">X  </button>
+                <button id="divide" class="op">÷</button>
+                <button id="equal" class="op">=</button>
+            </div>
+
+            <div class="digits">
+                <div class="789">
+                    <button id="9" class="dg">9</button>
+                    <button id="8" class="dg">8</button>
+                    <button id="7" class="dg">7</button>
+
+                </div>
+                <div class="456">
+                    <button id="6" class="dg">6</button>
+                    <button id="5" class="dg">5</button>
+                    <button id="4" class="dg">4</button>
+
+                </div>
+                <div class="123">
+                    <button id="3" class="dg">3</button>
+                    <button id="2" class="dg">2</button>
+                    <button id="1" class="dg">1</button>
+
+                </div>
+                <div class="0">
+                    <button id="0" class="dg">0</button>
+                    <button id="clear">C</button>
+                    <button id="delete">⌫</button>
+                </div>
+            </div>
+            
+     
+        </div>
     </div>
 </body>
 </html>

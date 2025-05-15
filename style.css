@@ -1,0 +1,78 @@
+@font-face {
+  font-family: 'Digital7';
+  src: url('fonts/digital-7.ttf') format('truetype'),
+       url('fonts/digital-7\ \(italic\).ttf') format('truetype'),
+       url('fonts/digital-7\ \(mono\ italic\).ttf') format('truetype'),
+       url('fonts/digital-7\ \(mono\).ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body{
+    font-family: 'Digital7', sans-serif;
+    font-size: 50px;
+}
+
+.container{
+    position: relative;
+    text-align: center;
+}
+
+.bmoImg{
+    height: 800px;
+    width: 800px;
+}
+
+button{
+    font-family: 'Digital7', sans-serif;
+    padding: 13px;
+    font-weight: 900;
+    color:  rgb(2, 46, 39);
+    font-size: 20px;
+    border-radius: 8px;
+    border-top: 6px solid  rgb(2, 46, 39);
+    border-right: 10px solid rgb(2, 46, 39);
+    border-bottom: 4px solid rgb(2, 46, 39);
+    border-left: 2px solid rgb(2, 46, 39);
+    height: 60px;
+    width: 53px;
+}
+
+.dg{
+    background-color: rgb(243, 214, 1);
+}
+
+.op{
+    background-color: rgb(74, 184, 49);
+}
+
+#clear{
+    color: white;
+    background-color: rgb(254, 62, 62);
+}
+
+#delete{
+    background-color: rgb(73, 211, 246);
+}
+
+.btns{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 5px solid black;
+
+    /* display: flex; */
+}
+
+#result{
+    position: absolute;
+    top: 14%;
+    left: 43%;
+}
+
+.digits{
+    display: flex;
+    flex-direction: column;
+}
+
