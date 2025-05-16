@@ -153,10 +153,15 @@ function startCalculator(){
    
     const equal = document.querySelector("#equal");
     equal.addEventListener("click", () => {
-        n2 = string.slice(opIndex+1); 
-        string = operate(n1, n2, op);
-        changeDisplay(string);
-        opIndex = -1;
+        if (n1 === undefined || opIndex === -1){
+            
+        }
+        else{
+            n2 = string.slice(opIndex+1); 
+            string = operate(n1, n2, op);
+            changeDisplay(string);
+            opIndex = -1;
+        }
     });
 
 
