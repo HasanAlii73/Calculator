@@ -22,7 +22,14 @@ function operate(n1, n2, op){
         case '+': res = add(number1, number2); return Math.round(res * 10000000) / 10000000; 
         case '-': res = subtract(number1, number2); return Math.round(res * 10000000) / 10000000;
         case 'X': res = multiply(number1, number2); return Math.round(res * 10000000) / 10000000;
-        case '÷': res = divide(number1, number2); return Math.round(res * 10000000) / 10000000;
+        case '÷':
+            if(number2 !== 0){
+                res = divide(number1, number2);
+                return Math.round(res * 10000000) / 10000000;
+            } 
+            else{
+                return "LMAO XD";
+            }
         default : return "Error";
     }
 }
