@@ -14,7 +14,8 @@ body{
 }
 
 .container{
-    position: relative;
+    position: fixed;
+    left: 25%;
     text-align: center;
 }
 
@@ -68,16 +69,19 @@ button{
     transform: translate(-50%, -50%);
     background-color: rgb(2, 169, 161);
     display: flex;
-    flex: auto;
+    flex-shrink: 0;
+    flex-wrap: wrap;
     gap: 22px;
     padding-inline: 40px;
     align-items: center;
+    height: 280px;
+    width: 370px;
 }
 
 #result{
     position: absolute;
     top: 38%;
-    left: 40%;
+    left: 32%;
     text-align: center;
     border: 5px solid black;
     border-radius: 9px;
