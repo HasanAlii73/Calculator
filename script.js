@@ -44,36 +44,91 @@ function startCalculator(){
     let n1, n2;
     let op;
     let opIndex = -1;
+    let thisResult = false;
 
     const one = document.querySelector("#one");
-    one.addEventListener("click", () => {string += '1';changeDisplay(string);});
+    one.addEventListener("click", () => {
+        if(thisResult)
+        {
+            claerFunc();
+        }
+        string += '1';
+        changeDisplay(string);
+        });
     
     const two = document.querySelector("#two");
-    two.addEventListener("click", () => {string += '2';changeDisplay(string);});
+    two.addEventListener("click", () => {
+        if(thisResult)
+        {
+            claerFunc();
+        }
+        string += '2';
+        changeDisplay(string);});
    
     const three = document.querySelector("#three");
-    three.addEventListener("click", () => {string += '3';changeDisplay(string);});
+    three.addEventListener("click", () => {
+        if(thisResult)
+        {
+            claerFunc();
+        }
+        string += '3';
+        changeDisplay(string);});
    
     const four = document.querySelector("#four");
-    four.addEventListener("click", () => {string += '4';changeDisplay(string);});
+    four.addEventListener("click", () => {
+        if(thisResult)
+        {
+            claerFunc();
+        }string += '4';
+        changeDisplay(string);});
     
     const five = document.querySelector("#five");
-    five.addEventListener("click", () => {string += '5';changeDisplay(string);});
+    five.addEventListener("click", () => {
+        if(thisResult)
+        {
+            claerFunc();
+        }string += '5';
+        changeDisplay(string);});
    
     const six = document.querySelector("#six");
-    six.addEventListener("click", () => {string += '6';changeDisplay(string);});
+    six.addEventListener("click", () => {
+        if(thisResult)
+        {
+            claerFunc();
+        }string += '6';
+        changeDisplay(string);});
   
     const seven = document.querySelector("#seven");
-    seven.addEventListener("click", () => {string += '7';changeDisplay(string);});
+    seven.addEventListener("click", () => {
+        if(thisResult)
+        {
+            claerFunc();
+        }string += '7';
+        changeDisplay(string);});
    
     const eight = document.querySelector("#eight");
-    eight.addEventListener("click", () => {string += '8';changeDisplay(string);});
+    eight.addEventListener("click", () => {
+        if(thisResult)
+        {
+            claerFunc();
+        }string += '8';
+        changeDisplay(string);});
 
     const nine = document.querySelector("#nine");
-    nine.addEventListener("click", () => {string += '9';changeDisplay(string);});
+    nine.addEventListener("click", () => {
+        if(thisResult)
+        {
+            claerFunc();
+        }string += '9';
+        changeDisplay(string);});
 
     const zero = document.querySelector("#zero");
-    zero.addEventListener("click", () => {string += '0';changeDisplay(string);});
+    zero.addEventListener("click", () => {
+        if(thisResult)
+        {
+            claerFunc();
+        }string += '0';
+        changeDisplay(string);});
    
     const add = document.querySelector("#add");
     add.addEventListener("click", () => {
@@ -187,14 +242,16 @@ function startCalculator(){
     delet.addEventListener("click", () => {string = string.length > 0 ? string.slice(0, -1) : string; changeDisplay(string);});
    
     const clear = document.querySelector("#clear");
-    clear.addEventListener("click", () => {
+    clear.addEventListener("click", claerFunc);
+    function claerFunc(){
         string = ''; 
         changeDisplay(string)
         n1 = undefined;
         n2 = undefined;
         op = '';
         opIndex = -1;
-    });
+        thisResult = false;
+    }
    
     const equal = document.querySelector("#equal");
     equal.addEventListener("click", () => {
@@ -206,6 +263,7 @@ function startCalculator(){
             string = operate(n1, n2, op);
             changeDisplay(string);
             opIndex = -1;
+            thisResult = true;
         }
     });
 
