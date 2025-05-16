@@ -149,7 +149,14 @@ function startCalculator(){
     delet.addEventListener("click", () => {string = string.length > 0 ? string.slice(0, -1) : string; changeDisplay(string);});
    
     const clear = document.querySelector("#clear");
-    clear.addEventListener("click", () => {string = ''; changeDisplay(string)});
+    clear.addEventListener("click", () => {
+        string = ''; 
+        changeDisplay(string)
+        n1 = undefined;
+        n2 = undefined;
+        op = '';
+        opIndex = -1;
+    });
    
     const equal = document.querySelector("#equal");
     equal.addEventListener("click", () => {
