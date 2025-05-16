@@ -17,12 +17,12 @@ function divide(n1, n2){
 function operate(n1, n2, op){
     let number1 = parseInt(n1);
     let number2 = parseInt(n2);
-
+    let res = -1;
     switch(op){
-        case '+': return add(number1, number2); 
-        case '-': return subtract(number1, number2);
-        case 'X': return multiply(number1, number2);
-        case '÷': return divide(number1, number2);
+        case '+': res = add(number1, number2); return Math.round(res * 10000000) / 10000000; 
+        case '-': res = subtract(number1, number2); return Math.round(res * 10000000) / 10000000;
+        case 'X': res = multiply(number1, number2); return Math.round(res * 10000000) / 10000000;
+        case '÷': res = divide(number1, number2); return Math.round(res * 10000000) / 10000000;
         default : return "Error";
     }
 }
@@ -74,7 +74,8 @@ function startCalculator(){
             n1 = string;
             string += '+';
             changeDisplay(string);
-            op = '+';opIndex = string.length-1;
+            op = '+';
+            opIndex = string.length-1;
         }
         else{
             n2 = string.slice(opIndex+1);
@@ -131,7 +132,8 @@ function startCalculator(){
             n1 = string;
             string += '÷';
             changeDisplay(string);
-            op = '÷';opIndex = string.length-1;
+            op = '÷';
+            opIndex = string.length-1;
         }
         else{
             n2 = string.slice(opIndex+1);
@@ -150,7 +152,12 @@ function startCalculator(){
     clear.addEventListener("click", () => {string = ''; changeDisplay(string)});
    
     const equal = document.querySelector("#equal");
-    equal.addEventListener("click", () => {n2 = string.slice(opIndex+1); string = operate(n1, n2, op);changeDisplay(string);});
+    equal.addEventListener("click", () => {
+        n2 = string.slice(opIndex+1); 
+        string = operate(n1, n2, op);
+        changeDisplay(string);
+        opIndex = -1;
+    });
 
 
 }
