@@ -15,12 +15,15 @@ function divide(n1, n2){
 }
 
 function operate(n1, n2, op){
+    let number1 = parseInt(n1);
+    let number2 = parseInt(n2);
+
     switch(op){
-        case '+': return add(n1, n2); 
-        case '-': return subtract(n1, n2);
-        case '*': return multiply(n1, n2);
-        case '/': return divide(n1, n2);
-        default : return "Error Operator!";
+        case '+': return add(number1, number2); 
+        case '-': return subtract(number1, number2);
+        case 'X': return multiply(number1, number2);
+        case '÷': return divide(number1, number2);
+        default : return "Error";
     }
 }
 
@@ -31,6 +34,9 @@ function changeDisplay(str){
 
 function startCalculator(){
     let string = '';
+    let n1, n2;
+    let op;
+    let opIndex = -1;
 
     const one = document.querySelector("#one");
     one.addEventListener("click", () => {string += '1';changeDisplay(string);});
@@ -63,16 +69,79 @@ function startCalculator(){
     zero.addEventListener("click", () => {string += '0';changeDisplay(string);});
    
     const add = document.querySelector("#add");
-    add.addEventListener("click", () => {string += '+';changeDisplay(string);});
+    add.addEventListener("click", () => {
+        if(opIndex === -1){
+            n1 = string;
+            string += '+';
+            changeDisplay(string);
+            op = '+';opIndex = string.length-1;
+        }
+        else{
+            n2 = string.slice(opIndex+1);
+            string = operate(n1, n2, op);
+            n1 = string;
+            string += '+';
+            changeDisplay(string);
+            opIndex = string.length-1;
+        }
+
+    });
     
     const sub = document.querySelector("#subtract");
-    sub.addEventListener("click", () => {string += '-';changeDisplay(string);});
-   
+    sub.addEventListener("click", () => {
+        if(opIndex === -1){
+            n1 = string;
+            string += '-';
+            changeDisplay(string);
+            op = '-';
+            opIndex = string.length-1;
+        }
+        else{
+            n2 = string.slice(opIndex+1);
+            string = operate(n1, n2, op);
+            n1 = string;
+            string += '-';
+            changeDisplay(string);
+            opIndex = string.length-1;
+        }
+    });
+    
     const mul = document.querySelector("#multiply");
-    mul.addEventListener("click", () => {string += 'X';changeDisplay(string);});
+    mul.addEventListener("click", () => {
+        if(opIndex === -1){
+            n1 = string;
+            string += 'X';
+            changeDisplay(string);
+            op = 'X';opIndex = string.length-1;
+        }
+        else{
+            n2 = string.slice(opIndex+1);
+            string = operate(n1, n2, op);
+            n1 = string;
+            string += 'X';
+            changeDisplay(string);
+            opIndex = string.length-1;
+        }
+    });
     
     const divd = document.querySelector("#divide");
-    divd.addEventListener("click", () => {string += '÷';changeDisplay(string);});
+    divd.addEventListener("click", () => {
+        '÷'
+        if(opIndex === -1){
+            n1 = string;
+            string += '÷';
+            changeDisplay(string);
+            op = '÷';opIndex = string.length-1;
+        }
+        else{
+            n2 = string.slice(opIndex+1);
+            string = operate(n1, n2, op);
+            n1 = string;
+            string += '÷';
+            changeDisplay(string);
+            opIndex = string.length-1;
+        }
+    });
     
     const delet = document.querySelector("#delete");
     delet.addEventListener("click", () => {string = string.length > 0 ? string.slice(0, -1) : string; changeDisplay(string);});
@@ -81,7 +150,7 @@ function startCalculator(){
     clear.addEventListener("click", () => {string = ''; changeDisplay(string)});
    
     const equal = document.querySelector("#equal");
-    equal.addEventListener("click", () => {string += '÷';changeDisplay(string);});
+    equal.addEventListener("click", () => {n2 = string.slice(opIndex+1); string = operate(n1, n2, op);changeDisplay(string);});
 
 
 }
