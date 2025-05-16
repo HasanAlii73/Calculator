@@ -78,6 +78,7 @@ button{
     position: absolute;
     top: 14%;
     left: 43%;
+    text-align: start;
 }
 
 #equal{
