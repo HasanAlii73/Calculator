@@ -28,7 +28,7 @@ function operate(n1, n2, op){
                 return Math.round(res * 10000000) / 10000000;
             } 
             else{
-                return "LMAO XD";
+                return "For real XD";
             }
         default : return "Error";
     }
@@ -85,12 +85,20 @@ function startCalculator(){
             opIndex = string.length-1;
         }
         else{
-            n2 = string.slice(opIndex+1);
-            string = operate(n1, n2, op);
-            n1 = string;
-            string += '+';
-            changeDisplay(string);
-            opIndex = string.length-1;
+            if(string.length-1 !== opIndex){
+                n2 = string.slice(opIndex+1);
+                string = operate(n1, n2, op);
+                n1 = string;
+                string += '+';
+                op = '+';
+                changeDisplay(string);
+                opIndex = string.length-1;
+            }
+            else{
+                op = '+';
+                string = string.replace(string.charAt(opIndex), '+');
+                changeDisplay(string);
+            }
         }
 
     });
@@ -105,12 +113,19 @@ function startCalculator(){
             opIndex = string.length-1;
         }
         else{
-            n2 = string.slice(opIndex+1);
-            string = operate(n1, n2, op);
-            n1 = string;
-            string += '-';
-            changeDisplay(string);
-            opIndex = string.length-1;
+            if(string.length-1 !== opIndex){
+                n2 = string.slice(opIndex+1);
+                string = operate(n1, n2, op);
+                n1 = string;
+                string += '-';
+                op = '-';
+                changeDisplay(string);
+                opIndex = string.length-1;
+            }else{
+                op = '-';
+                string = string.replace(string.charAt(opIndex), '-');
+                changeDisplay(string);
+            }
         }
     });
     
@@ -123,12 +138,20 @@ function startCalculator(){
             op = 'X';opIndex = string.length-1;
         }
         else{
-            n2 = string.slice(opIndex+1);
-            string = operate(n1, n2, op);
-            n1 = string;
-            string += 'X';
-            changeDisplay(string);
-            opIndex = string.length-1;
+            if(string.length-1 !== opIndex){
+                n2 = string.slice(opIndex+1);
+                string = operate(n1, n2, op);
+                n1 = string;
+                string += 'X';
+                op = 'X';
+                changeDisplay(string);
+                opIndex = string.length-1;
+            }
+            else{
+                op = 'X';
+                string = string.replace(string.charAt(opIndex), 'X');
+                changeDisplay(string);
+            }
         }
     });
     
@@ -143,12 +166,20 @@ function startCalculator(){
             opIndex = string.length-1;
         }
         else{
-            n2 = string.slice(opIndex+1);
-            string = operate(n1, n2, op);
-            n1 = string;
-            string += '÷';
-            changeDisplay(string);
-            opIndex = string.length-1;
+            if(string.length-1 !== opIndex){
+                n2 = string.slice(opIndex+1);
+                string = operate(n1, n2, op);
+                n1 = string;
+                string += '÷';
+                op = '÷';
+                changeDisplay(string);
+                opIndex = string.length-1;
+            }
+            else{
+                 op = '÷';
+                string = string.replace(string.charAt(opIndex), '÷');
+                changeDisplay(string);
+            }
         }
     });
     
